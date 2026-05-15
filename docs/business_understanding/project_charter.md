@@ -2,57 +2,57 @@
 
 ## Nombre del Proyecto
 
-[Nombre del proyecto aquí]
+Detección de Transacciones Ilícitas en Redes de Bitcoin mediante Graph Neural Networks
 
 ## Objetivo del Proyecto
 
-[Descripción breve del objetivo del proyecto y por qué es importante]
+Desarrollar un sistema basado en Graph Neural Networks (GNN) para la detección de transacciones fraudulentas o ilícitas (como lavado de dinero) dentro de redes de transacciones de Bitcoin. El proyecto busca aprovechar la estructura relacional de los datos para mejorar la identificación de comportamientos sospechosos en un contexto de alto volumen transaccional y anonimidad relativa de los usuarios.
 
 ## Alcance del Proyecto
 
 ### Incluye:
 
-- [Descripción de los datos disponibles]
-- [Descripción de los resultados esperados]
-- [Criterios de éxito del proyecto]
+- **Datos disponibles:** Elliptic Dataset, un conjunto de datos públicos con 203,769 transacciones de Bitcoin representadas como un grafo dirigido con 167 características por nodo, 234,355 aristas (conexiones entre transacciones) y etiquetas de clase (ilícita, legítima o desconocida).
+- **Resultados esperados:** Un modelo GNN entrenado capaz de clasificar transacciones como ilícitas o legítimas, junto con una comparación de diferentes arquitecturas (GCN, GraphSAGE, GAT, entre otras) para identificar la más adecuada al problema.
+- **Criterios de éxito:** Obtener un F1-score competitivo en la detección de transacciones ilícitas, considerando el desbalance de clases y la naturaleza semi-supervisada del dataset.
 
 ### Excluye:
 
-- [Descripción de lo que no está incluido en el proyecto]
+- Recolección de datos directamente desde la blockchain (se utiliza un dataset público ya procesado).
+- Análisis de criptomonedas distintas a Bitcoin.
+- Integración con sistemas de monitoreo de terceros.
 
 ## Metodología
 
-[Descripción breve de la metodología que se utilizará para llevar a cabo el proyecto]
+Se utilizará una metodología basada en CRISP-DM adaptada a proyectos de Deep Learning, que incluye las siguientes fases: entendimiento del negocio, adquisición y exploración de datos, preparación de datos y construcción del grafo, modelamiento con diferentes arquitecturas de GNN, evaluación comparativa de modelos y despliegue. Se emplearán técnicas de aprendizaje semi-supervisado sobre grafos para aprovechar tanto los nodos etiquetados como los no etiquetados.
 
 ## Cronograma
 
 | Etapa | Duración Estimada | Fechas |
 |------|---------|-------|
-| Entendimiento del negocio y carga de datos | 2 semanas | del 1 de mayo al 15 de mayo |
-| Preprocesamiento, análisis exploratorio | 4 semanas | del 16 de mayo al 15 de junio |
-| Modelamiento y extracción de características | 4 semanas | del 16 de junio al 15 de julio |
-| Despliegue | 2 semanas | del 16 de julio al 31 de julio |
-| Evaluación y entrega final | 3 semanas | del 1 de agosto al 21 de agosto |
-
-Hay que tener en cuenta que estas fechas son de ejemplo, estas deben ajustarse de acuerdo al proyecto.
+| Entendimiento del negocio y carga de datos | 1 semana | del 14 de mayo al 21 de mayo de 2026 |
+| Exploración de los datos | 1 semana | del 21 de mayo al 28 de mayo de 2026 |
+| Preparación de los datos | 1 semana | del 28 de mayo al 4 de junio de 2026 |
+| Modelamiento y evaluación | 1 semana | del 4 de junio al 11 de junio de 2026 |
+| Entrega final del proyecto | 1 semana | del 11 de junio al 18 de junio de 2026 |
 
 ## Equipo del Proyecto
 
-- [Nombre y cargo del líder del proyecto]
-- [Nombre y cargo de los miembros del equipo]
+- Josue Alexander Nuñez Prada
+- Iveth Dayana Diaz Carabali
+- Adriana Dorado Soler
 
 ## Presupuesto
 
-[Descripción del presupuesto asignado al proyecto]
+TBD
 
 ## Stakeholders
 
-- [Nombre y cargo de los stakeholders del proyecto]
-- [Descripción de la relación con los stakeholders]
-- [Expectativas de los stakeholders]
+- **Programa MLDS (Universidad):** Evaluador académico del proyecto. Espera un desarrollo riguroso que demuestre competencias en Deep Learning aplicado.
+- **Sector financiero y tecnológico (beneficiarios potenciales):** Plataformas de intercambio de criptomonedas, empresas de análisis blockchain y organizaciones de prevención de fraude que podrían beneficiarse de los resultados del modelo.
 
 ## Aprobaciones
 
-- [Nombre y cargo del aprobador del proyecto]
-- [Firma del aprobador]
-- [Fecha de aprobación]
+- Docente del curso MLDS - Módulo 6
+- Pendiente de aprobación
+- Fecha: Por definir
