@@ -44,12 +44,28 @@ Los archivos fuente se descargan desde Kaggle y se almacenan localmente en la ru
 
 ### Procedimientos de transformación y limpieza
 
-TBD
+- Carga de archivos crudos con `pandas` sin alterar la granularidad original por transacción.
+- Resolución de ruta base de forma robusta (`data/elliptic-data-set` o `data/elliptic-data-set/elliptic_bitcoin_dataset`).
+- Validación de esquema mínimo:
+	- `features`: 167 columnas esperadas.
+	- `edges`: columnas `txId1`, `txId2`.
+	- `classes`: columnas `txId`, `class`.
+- Filtrado de etiquetas conocidas (`class != unknown`) para entrenamiento supervisado.
+- Construcción de snapshots temporales por `timestep` para evitar fuga temporal y controlar memoria.
+- Mapeo de etiqueta objetivo para detección de fraude:
+	- `1` (ilícita) -> 1
+	- `2` (lícita) -> 0
 
 ### Base de datos de destino
 
-TBD
+- **No aplica base de datos transaccional en Entrega 1.**
+- Persistencia local en archivos bajo `data/`:
+	- `data/elliptic-data-set/`: copia local del dataset.
+	- `data/reports/`: reportes JSON de adquisición, EDA y evaluación.
+	- `data/processed/`: artefactos de preprocesamiento.
 
 ### Resumen del dataset procesado
 
-TBD
+- Se conserva la estructura original del dataset para trazabilidad.
+- Se habilita una representación temporal por bloques para modelamiento con GNN.
+- El flujo queda automatizado con scripts en `scripts/data_acquisition` y `scripts/preprocessing`.

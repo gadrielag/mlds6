@@ -1,27 +1,50 @@
 # Reporte de Datos
 
-Este documento contiene los resultados del análisis exploratorio de datos.
+Este documento resume la exploración inicial del dataset Elliptic, utilizado para detección de transacciones ilícitas en Bitcoin.
 
 ## Resumen general de los datos
 
-En esta sección se presenta un resumen general de los datos. Se describe el número total de observaciones, variables, el tipo de variables, la presencia de valores faltantes y la distribución de las variables.
+- Fuente: Kaggle (`ellipticco/elliptic-data-set`).
+- Tablas principales:
+	- `elliptic_txs_features.csv`: 203,769 filas x 167 columnas.
+	- `elliptic_txs_edgelist.csv`: 234,355 filas x 2 columnas.
+	- `elliptic_txs_classes.csv`: 203,769 filas x 2 columnas.
+- Unidad de análisis: transacción de Bitcoin (nodo en grafo dirigido).
+- Estructura temporal: 49 timesteps.
 
 ## Resumen de calidad de los datos
 
-En esta sección se presenta un resumen de la calidad de los datos. Se describe la cantidad y porcentaje de valores faltantes, valores extremos, errores y duplicados. También se muestran las acciones tomadas para abordar estos problemas.
+- Valores faltantes: no se esperan faltantes estructurales en las columnas principales del dataset oficial.
+- Duplicados: se verifica el conteo de aristas duplicadas en la etapa EDA (`scripts/eda/main.py`).
+- Consistencia de esquema:
+	- `features`: 167 columnas (id + timestep + 165 features anonimizadas).
+	- `edges`: columnas `txId1`, `txId2`.
+	- `classes`: columnas `txId`, `class`.
 
 ## Variable objetivo
 
-En esta sección se describe la variable objetivo. Se muestra la distribución de la variable y se presentan gráficos que permiten entender mejor su comportamiento.
+- Variable original: `class`.
+- Valores posibles:
+	- `1`: transacción ilícita.
+	- `2`: transacción lícita.
+	- `unknown`: sin etiqueta.
+- Para entrenamiento supervisado se usan solo etiquetas conocidas (`1` y `2`), mapeando:
+	- ilícita -> 1
+	- lícita -> 0
 
 ## Variables individuales
 
-En esta sección se presenta un análisis detallado de cada variable individual. Se muestran estadísticas descriptivas, gráficos de distribución y de relación con la variable objetivo (si aplica). Además, se describen posibles transformaciones que se pueden aplicar a la variable.
+- Las 165 variables explicativas están anonimizadas por el proveedor.
+- Se combinan características locales y agregadas del vecindario del nodo.
+- Por diseño del problema, se prioriza modelamiento relacional (GNN) sobre interpretación directa de cada feature.
 
 ## Ranking de variables
 
-En esta sección se presenta un ranking de las variables más importantes para predecir la variable objetivo. Se utilizan técnicas como la correlación, el análisis de componentes principales (PCA) o la importancia de las variables en un modelo de aprendizaje automático.
+- En esta fase no se define ranking definitivo por feature.
+- Se utiliza el set completo de variables para preservar la señal estructural en el modelo de grafos.
 
 ## Relación entre variables explicativas y variable objetivo
 
-En esta sección se presenta un análisis de la relación entre las variables explicativas y la variable objetivo. Se utilizan gráficos como la matriz de correlación y el diagrama de dispersión para entender mejor la relación entre las variables. Además, se pueden utilizar técnicas como la regresión lineal para modelar la relación entre las variables.
+- El comportamiento de fraude depende tanto de atributos del nodo como de su contexto topológico.
+- Por esta razón, el pipeline utiliza snapshots temporales de grafo y no solo análisis tabular estático.
+- La relación se evalúa de forma indirecta mediante desempeño del modelo GCN (accuracy, precision, recall y F1).
