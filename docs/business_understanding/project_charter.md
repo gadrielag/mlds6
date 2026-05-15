@@ -44,7 +44,9 @@ Se utilizará una metodología basada en CRISP-DM adaptada a proyectos de Deep L
 
 ## Presupuesto
 
-TBD
+- **Infraestructura:** uso de recursos locales y/o notebooks académicos (sin costo incremental para Entrega 1).
+- **Licenciamiento:** herramientas open-source.
+- **Costo estimado Entrega 1:** 0 COP en servicios externos.
 
 ## Stakeholders
 
@@ -54,5 +56,5 @@ TBD
 ## Aprobaciones
 
 - Docente del curso MLDS - Módulo 6
-- Pendiente de aprobación
-- Fecha: Por definir
+- Estado: En revisión académica
+- Fecha: Mayo 2026

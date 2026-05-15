@@ -1,10 +1,37 @@
 # Team Data Science Project Template
 
-Esta plantilla es una implementación de la plantilla de proyecto de Team Data Science Process que actualmente se utiliza en el "Programa de Formación en Machine Learning y Data Science" en la Universidad Nacional de Colombia.
+Repositorio del proyecto aplicado de MLDS para la Entrega 1, enfocado en entendimiento del negocio, carga de datos y diccionario de datos del dataset Elliptic.
 
-Esta plantilla proporciona las siguientes carpetas y archivos:
+## Estructura
 
-* `src`: acá debe ir el código o implementación del proyecto en Python.
-* `docs`: en esta carpeta se encuentran las plantillas de los documentos definidos en la metodología.
-* `scripts`: esta carpeta debe contener los scripts/notebooks que se ejecutarán.
-* `pyproject.toml`: archivo de definición del proyecto en Python.
+- `src/nombre_paquete`: codigo fuente de adquisicion y soporte de reportes.
+- `scripts`: punto de entrada de la fase actual (adquisicion de datos).
+- `docs`: documentacion de entregables en formato markdown.
+- `data`: almacenamiento local del dataset y reportes generados.
+
+## Requisitos
+
+1. Python 3.10 o superior.
+2. Credenciales de Kaggle configuradas para descarga automatica con `kagglehub`.
+
+## Instalacion
+
+```bash
+pip install -e .
+```
+
+## Ejecucion por etapas
+
+```bash
+python scripts/data_acquisition/main.py
+```
+
+## Resultado esperado
+
+- Dataset en `data/elliptic-data-set`.
+- Resumen de adquisicion en `data/reports/acquisition_summary.json`.
+- Diccionario y marco de negocio diligenciados en `docs/`.
+
+## Referencia metodologica
+
+La implementacion de esta rama esta recortada al alcance de Entrega 1 de acuerdo con las instrucciones oficiales (carga de datos, marco de proyecto y diccionario).
